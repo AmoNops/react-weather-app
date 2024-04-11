@@ -24,13 +24,13 @@
   line-height: 19px;
   list-style: none;
 }
-.Weather img{
-  line-height: 64px;
-  width: 64px;
-  margin-right: 10px;
+.Weather .img{
+  line-height: 40px;
+  width: 40px;
+  margin-right: 5px;
   display: inline-block;
   position: relative;
-  bottom: +4px;
+  bottom: -12.5px;
 }
 
 .Weather .temperature {
