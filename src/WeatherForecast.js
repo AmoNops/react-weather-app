@@ -16,6 +16,15 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
+  function load() {
+    const apiKey = "f09d3949047ab6c9e3bcaf79cf61f619";
+    let lat = props.coordinates.lat;
+    let long = props.coordinates.lon;
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiURL).then(handleResponse);
+  }
+
   if (loaded) {
     return (
       <div className="WeatherForecast">
@@ -35,12 +44,7 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    const apiKey = "f09d3949047ab6c9e3bcaf79cf61f619";
-    let lat = props.coordinates.lat;
-    let long = props.coordinates.lon;
-    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiURL).then(handleResponse);
+    load();
 
     return null;
   }
